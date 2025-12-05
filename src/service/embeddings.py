@@ -1,10 +1,8 @@
-from langchain_openai import OpenAIEmbeddings
-from src.config import Config
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-emb = OpenAIEmbeddings(
-    model="text-embedding-3-small",
-    api_key=Config.OPENAI_API_KEY
-)
-
-def get_embedding(text: str):
-    return emb.embed_query(text)
+def chunk_text(text):
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=300,
+        chunk_overlap=50
+    )
+    return splitter.split_text(text)
