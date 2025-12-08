@@ -34,6 +34,9 @@ def fetch_products():
 
 
 def store_embeddings(products):
+    """
+    Generate and store embeddings for products.
+    """
     texts = []
     metadata = []
 

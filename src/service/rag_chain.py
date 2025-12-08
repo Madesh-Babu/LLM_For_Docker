@@ -2,7 +2,6 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_community.vectorstores.pgvector import PGVector
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
-
 from src.config import Config
 from src.prompts.lcel_prompt import lcel_rag_prompt
 
