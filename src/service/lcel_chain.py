@@ -5,8 +5,13 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_community.vectorstores.pgvector import PGVector
 from config import Config
 from langchain_openai import OpenAIEmbeddings
-
+from src.constants.text_constants import K_VALUE
 def build_rag_chain():
+    '''
+    Builds and returns a RAG chain for LCEL.
+    Returns:
+        A RAG chain instance.
+    '''
     embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
 
     vector_store = PGVector(
@@ -15,7 +20,7 @@ def build_rag_chain():
         embedding_function=embeddings,
     )
 
-    retriever = vector_store.as_retriever(search_kwargs={"k": 3})
+    retriever = vector_store.as_retriever(search_kwargs={"k": K_VALUE})
 
     model = get_lcel_model()
 
