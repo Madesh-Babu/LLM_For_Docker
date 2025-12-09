@@ -1,6 +1,5 @@
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores.pgvector import PGVector
-
 from src.service.embeddings import chunk_text
 from src.config import Config
 from src.db import get_connection
@@ -67,7 +66,7 @@ if __name__ == "__main__":
     products = fetch_products()
 
     if not products:
-        print("❌ No products found! Check if table contains data.")
+        print(" No products found! Check if table contains data.")
     else:
         print(f"Found {len(products)} products. Generating embeddings...")
         store_embeddings(products)
